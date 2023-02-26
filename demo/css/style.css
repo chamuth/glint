@@ -1,0 +1,36 @@
+body {
+  background-color: #222;
+}
+
+.flex {
+  display: flex;
+  gap: 10px;
+}
+
+.container {
+  background-color: #464646;
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+
+.c1 {
+  width: 100px;
+  height: 100px;
+}
+.c2 {
+  width: 200px;
+  height: 200px;
+}
+.c3 {
+  width: 300px;
+  height: 300px;
+}
+.c4 {
+  width: 400px;
+  height: 400px;
+}
+.c5 {
+  width: 500px;
+  height: 500px;
+}

@@ -1,0 +1,21 @@
+.container {
+  border-radius: 15px;
+  overflow: hidden;
+
+  .inner-background {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    height: calc(100% - 4px);
+    width: calc(100% - 4px);
+    z-index: 100;
+    border-radius: 13px;
+  }
+
+  .border-glow {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-5000%, -5000%);
+  }
+}
