@@ -14,8 +14,8 @@ export default class Glint {
    * @param background Background color of the container
    * @returns 
    */
-  private getHoverGradient(foreground: string, background: string): string {
-    return `radial-gradient(circle, ${foreground} 0%, ${background} 40%)`;
+  private getHoverGradient(foreground: string): string {
+    return `radial-gradient(circle, ${foreground} 0%, transparent 40%)`;
   }
 
   /**
@@ -43,14 +43,14 @@ export default class Glint {
 
       const innerBackground = document.createElement("div");
       innerBackground.classList.add(INNER_BACKGROUND_CLASS_NAME)
-      innerBackground.style.backgroundColor = styles.backgroundColor;
+      innerBackground.style.background = styles.background;
 
       const border = g.getAttribute("glint-border");
       const borderGlow = document.createElement("div");
       borderGlow.classList.add("border-glow");
       borderGlow.style.width = INNER_GLOW_SIZE;
       borderGlow.style.height = INNER_GLOW_SIZE;
-      borderGlow.style.background = this.getHoverGradient(border || "#fff", styles.backgroundColor);
+      borderGlow.style.background = this.getHoverGradient(border || "#fff");
 
       g.appendChild(innerBackground);
       g.appendChild(borderGlow);

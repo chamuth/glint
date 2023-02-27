@@ -4,5 +4,8 @@ export interface StoredGlint {
 }
 
 export interface GlintConfig {
-
+  border: {
+    width: number;
+    color: string;
+  }
 }
