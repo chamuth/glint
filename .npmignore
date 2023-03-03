@@ -1,6 +1,7 @@
 src/
 demo/
 node_modules/
+.sass-cache/
 
 webpack.config.js
 Gruntfile.js
