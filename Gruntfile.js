@@ -14,7 +14,7 @@ module.exports = function (grunt) {
     },
     webpack: {
       options: {
-        mode: "development"
+        mode: "production"
       },
       prod: webpackConfig,
     },
