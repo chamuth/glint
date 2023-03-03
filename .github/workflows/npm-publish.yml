@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: 16
       - run: gem install sass
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
       - run: npm ci
       - run: npm run build
 
