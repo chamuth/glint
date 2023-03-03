@@ -1,23 +1,22 @@
 import { GlintConfig, StoredGlint } from "../util/interfaces";
-import { GLINT_CONTAINER_CLASS_NAME, INNER_BACKGROUND_CLASS_NAME, INNER_GLOW_SIZE } from "../util/constants";
+import { DEFAULT_CONFIG, GLINT_CONTAINER_CLASS_NAME, INNER_BACKGROUND_CLASS_NAME, INNER_GLOW_SIZE } from "../util/constants";
+import ContainerProcessor from "./containerProcessor";
 
 export default class Glint {
   private data: StoredGlint[] = [];
   private mouseX: number = -1;
   private mouseY: number = -1;
 
-  constructor(params?: GlintConfig) {
-    this.initialize();
-  }
+  private containerProcessor: ContainerProcessor;
 
-  /**
-   * Get gradient function for the hover effect
-   * @param foreground Glowing color
-   * @param background Background color of the container
-   * @returns 
-   */
-  private getHoverGradient(foreground: string): string {
-    return `radial-gradient(circle, ${foreground} 0%, transparent 40%)`;
+  constructor(config?: GlintConfig) {
+    if (!config) {
+      config = DEFAULT_CONFIG;
+    }
+
+    this.containerProcessor = new ContainerProcessor(config);
+
+    this.initialize();
   }
 
   /**
@@ -27,6 +26,9 @@ export default class Glint {
     this.data = [];
   }
 
+  /**
+   * Returns the stored glint containers list
+   */
   private getStoredGlintContainers() {
     return this.data;
   }
@@ -36,40 +38,8 @@ export default class Glint {
    */
   private getGlintContainers() {
     this.resetGlintContainers();
-
     var containers = document.querySelectorAll(`.${GLINT_CONTAINER_CLASS_NAME}`);
-
-    containers.forEach((g) => {
-      // Get computed styles for the container
-      const styles = getComputedStyle(g);
-
-      const innerBackground = document.createElement("div");
-      innerBackground.classList.add(INNER_BACKGROUND_CLASS_NAME)
-      innerBackground.style.background = styles.background;
-
-      const border = g.getAttribute("glint-border");
-      const borderGlow = document.createElement("div");
-      borderGlow.classList.add("border-glow");
-      borderGlow.style.width = INNER_GLOW_SIZE;
-      borderGlow.style.height = INNER_GLOW_SIZE;
-      borderGlow.style.background = this.getHoverGradient(border || "#fff");
-
-      const hoverGlow = document.createElement("div");
-      hoverGlow.classList.add("hover-glow");
-      hoverGlow.style.width = INNER_GLOW_SIZE;
-      hoverGlow.style.height = INNER_GLOW_SIZE;
-      hoverGlow.style.background = this.getHoverGradient(border || "#fff");
-
-      g.appendChild(innerBackground);
-      g.appendChild(borderGlow);
-      g.appendChild(hoverGlow);
-
-      this.data.push({
-        container: g as HTMLElement,
-        border: borderGlow,
-        glow: hoverGlow,
-      });
-    });
+    this.data = this.containerProcessor.processGlintContainers(containers);
   }
 
   /**

@@ -24,6 +24,7 @@
 
   &:active .border-glow {
     background-size: 300% 300% !important;
+    transition: transform 1ms, background-size 1ms;
   }
 
   .hover-glow {
@@ -44,7 +45,7 @@
 
   &:active .hover-glow {
     background-size: 200% 200% !important;
-    transition: opacity 1ms, transform 150ms, background-size 500ms;
+    transition: opacity 1ms, transform 1ms, background-size 1ms;
     opacity: 0.4;
   }
 }
