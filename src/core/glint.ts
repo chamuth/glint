@@ -3,6 +3,8 @@ import { GLINT_CONTAINER_CLASS_NAME, INNER_BACKGROUND_CLASS_NAME, INNER_GLOW_SIZ
 
 export default class Glint {
   private data: StoredGlint[] = [];
+  private mouseX: number = -1;
+  private mouseY: number = -1;
 
   constructor(params?: GlintConfig) {
     this.initialize();
@@ -52,12 +54,20 @@ export default class Glint {
       borderGlow.style.height = INNER_GLOW_SIZE;
       borderGlow.style.background = this.getHoverGradient(border || "#fff");
 
+      const hoverGlow = document.createElement("div");
+      hoverGlow.classList.add("hover-glow");
+      hoverGlow.style.width = INNER_GLOW_SIZE;
+      hoverGlow.style.height = INNER_GLOW_SIZE;
+      hoverGlow.style.background = this.getHoverGradient(border || "#fff");
+
       g.appendChild(innerBackground);
       g.appendChild(borderGlow);
+      g.appendChild(hoverGlow);
 
       this.data.push({
         container: g as HTMLElement,
-        border: borderGlow
+        border: borderGlow,
+        glow: hoverGlow,
       });
     });
   }
@@ -68,20 +78,25 @@ export default class Glint {
   private initialize() {
     this.getGlintContainers();
     window.addEventListener("mousemove", (ev: MouseEvent) => {
+      this.mouseX = ev.clientX;
+      this.mouseY = ev.clientY;
+    });
+
+    setInterval(() => {
       this.getStoredGlintContainers().forEach((d) => {
         const rect = d.container.getBoundingClientRect();
 
-        // if ((ev.clientX >= rect.left && ev.clientX <= rect.left + rect.width) &&
-        //   (ev.clientY >= rect.top && ev.clientY <= rect.top + rect.height)) {
-        //   // if in the box range
-        // }
-
-        const x = (ev.clientX - rect.left - rect.width);
-        const y = (ev.clientY - rect.top - rect.width);
+        const x = (this.mouseX - rect.left - rect.width);
+        const y = (this.mouseY - rect.top - rect.width);
         d.border.style.transform = `translate(${x}px,${y}px)`;
+
+        if ((this.mouseX >= rect.left && this.mouseX <= rect.left + rect.width) &&
+          (this.mouseY >= rect.top && this.mouseY <= rect.top + rect.height)) {
+          // if in the box range
+          d.glow.style.transform = `translate(${x}px,${y}px)`;
+        }
       });
-    }
-    );
+    }, 60);
   }
 
   /**

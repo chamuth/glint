@@ -17,5 +17,34 @@
     top: 0%;
     left: 0%;
     transform: translate(-5000%, -5000%);
+    transition: transform 150ms, background-size 500ms;
+    background-size: 100% 100% !important;
+    background-position: 50% 50% !important;
+  }
+
+  &:active .border-glow {
+    background-size: 300% 300% !important;
+  }
+
+  .hover-glow {
+    opacity: 0;
+    position: absolute;
+    z-index: 200;
+    top: 0%;
+    left: 0%;
+    transform: translate(-5000%, -5000%);
+    transition: opacity 1s, transform 150ms, background-position 200ms, background-size 200ms;
+    background-position: 50% 50% !important;
+    background-size: 100% 100% !important;
+  }
+
+  &:hover .hover-glow {
+    opacity: 0.2;
+  }
+
+  &:active .hover-glow {
+    background-size: 200% 200% !important;
+    transition: opacity 1ms, transform 150ms, background-size 500ms;
+    opacity: 0.4;
   }
 }
