@@ -13,10 +13,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: ruby/setup-ruby@v1
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: gem install sass
       - run: npm ci
       - run: npm run build
 
