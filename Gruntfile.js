@@ -36,5 +36,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['sass', 'webpack', 'copy']);
+  grunt.registerTask('default', ['sass', 'webpack']);
 };
