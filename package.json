@@ -1,6 +1,6 @@
 {
   "name": "@chamuth/glint",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "Gruntfile.js",
   "scripts": {
     "build": "rimraf ./dist && grunt",
