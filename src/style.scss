@@ -1,15 +1,10 @@
-.container {
-  border-radius: 15px;
+.glint-container {
   overflow: hidden;
+  user-select: none;
 
   .inner-background {
     position: absolute;
-    left: 2px;
-    top: 2px;
-    height: calc(100% - 4px);
-    width: calc(100% - 4px);
     z-index: 100;
-    border-radius: 13px;
   }
 
   .border-glow {
@@ -17,9 +12,14 @@
     top: 0%;
     left: 0%;
     transform: translate(-5000%, -5000%);
-    transition: transform 150ms, background-size 500ms;
     background-size: 100% 100% !important;
     background-position: 50% 50% !important;
+    opacity: 0.3;
+    transition: transform 150ms, background-size 500ms, opacity 200ms;
+  }
+
+  &:hover .border-glow {
+    opacity: 1;
   }
 
   &:active .border-glow {
@@ -47,5 +47,10 @@
     background-size: 200% 200% !important;
     transition: opacity 1ms, transform 1ms, background-size 1ms;
     opacity: 0.4;
+  }
+
+  & > *:not(.inner-background):not(.hover-glow):not(.border-glow) {
+    z-index: 250 !important;
+    position: relative;
   }
 }

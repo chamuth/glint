@@ -1,6 +1,8 @@
-import { GlintConfig, StoredGlint } from "../util/interfaces";
+import StoredGlint from "../interfaces/storedGlint";
+import GlintConfig from "../interfaces/glintConfig";
+
 import { DEFAULT_CONFIG, GLINT_CONTAINER_CLASS_NAME } from "../util/constants";
-import ContainerProcessor from "./containerProcessor";
+import ContainerProcessor from "./container";
 
 export default class Glint {
   private data: StoredGlint[] = [];
