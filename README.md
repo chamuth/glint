@@ -8,5 +8,6 @@ Glint gives you next gen effects for all types and shapes of UI elements in your
 - or add `https://unpkg.com/@chamuth/glint@{VERSION_HERE}/dist/index.js' script to your document
 
 ## Todo
-- [ ] Support for Dynamic Properties (all shapes)
-- [ ] Support for inline configurations
+- [X] Support for Dynamic Properties (all shapes)
+- [X] Support for inline configurations
+- [ ] Performance improvements / Optimization
