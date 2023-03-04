@@ -4,7 +4,8 @@
   "main": "Gruntfile.js",
   "scripts": {
     "build": "rimraf ./dist && grunt",
-    "watch": "npm run build && grunt watch"
+    "watch": "npm run build && grunt watch",
+    "prepublish": "npm run build"
   },
   "keywords": [],
   "author": "Chamuth Chamandana",

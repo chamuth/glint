@@ -7,7 +7,7 @@ on:
     branches: ["master"]
 
 jobs:
-  build-publish:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: ruby/setup-ruby@v1
@@ -21,7 +21,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: gem install sass
       - run: npm ci
-      - run: npm run build
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
