@@ -1,10 +1,11 @@
 {
   "name": "@chamuth/glint",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "Gruntfile.js",
   "scripts": {
     "build": "rimraf ./dist && grunt",
-    "watch": "npm run build && grunt watch"
+    "watch": "npm run build && grunt watch",
+    "prepublish": "npm run build"
   },
   "keywords": [],
   "author": "Chamuth Chamandana",

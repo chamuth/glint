@@ -1,11 +1,13 @@
-name: Publish NPM Package
+name: Build
 
 on:
   push:
-    branches: ["master"]
+    branches: ["develop"]
+  pull_request:
+    branches: ["develop", "master"]
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: ruby/setup-ruby@v1
@@ -19,6 +21,4 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: gem install sass
       - run: npm ci
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: npm run build
