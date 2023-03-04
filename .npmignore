@@ -2,7 +2,10 @@ src/
 demo/
 node_modules/
 .sass-cache/
+.github/
 
-webpack.config.js
+webpack.config.dev.js
+webpack.config.prod.js
+
 Gruntfile.js
 tsconfig.json
