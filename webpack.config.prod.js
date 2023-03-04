@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  mode: "production",
   entry: './src/index.ts',
   module: {
     rules: [
@@ -15,7 +16,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'index.js',
+    filename: 'glint.min.js',
     path: path.resolve(__dirname, 'dist'),
   },
 };

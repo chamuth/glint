@@ -1,5 +1,5 @@
 import { GlintConfig, StoredGlint } from "../util/interfaces";
-import { DEFAULT_CONFIG, GLINT_CONTAINER_CLASS_NAME, INNER_BACKGROUND_CLASS_NAME, INNER_GLOW_SIZE } from "../util/constants";
+import { DEFAULT_CONFIG, GLINT_CONTAINER_CLASS_NAME } from "../util/constants";
 import ContainerProcessor from "./containerProcessor";
 
 export default class Glint {

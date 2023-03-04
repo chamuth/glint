@@ -1,27 +1,34 @@
-const webpackConfig = require('./webpack.config.js');
+const webpackDevConfig = require('./webpack.config.dev.js');
+const webpackProdConfig = require('./webpack.config.prod.js');
 
 module.exports = function (grunt) {
   grunt.initConfig({
     sass: {
-      dist: {
+      dev: {
+        options: {
+          style: 'expanded'
+        },
+        files: {
+          './dist/glint.css': './src/style.scss'
+        }
+      },
+      prod: {
         options: {
           style: 'compressed'
         },
         files: {
-          './dist/style.css': './src/style.scss'
+          './dist/glint.min.css': './src/style.scss'
         }
       }
     },
     webpack: {
-      options: {
-        mode: "production"
-      },
-      prod: webpackConfig,
+      dev: webpackDevConfig,
+      prod: webpackProdConfig,
     },
     watch: {
       scripts: {
         files: ['**/*.ts', '**/*.scss'],
-        tasks: ['default'],
+        tasks: ['dev'],
         options: {
           spawn: false,
         },
@@ -36,5 +43,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['sass', 'webpack']);
+  grunt.registerTask('dev', ['sass:dev', 'webpack:dev']);
+  grunt.registerTask('prod', ['sass:prod', 'webpack:prod']);
+
+  grunt.registerTask('default', ['dev', 'prod']);
 };
