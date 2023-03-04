@@ -1,11 +1,12 @@
 {
   "name": "@chamuth/glint",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "Gruntfile.js",
   "scripts": {
     "build": "rimraf ./dist && grunt",
     "watch": "npm run build && grunt watch",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Chamuth Chamandana",
@@ -13,6 +14,7 @@
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
+    "@types/jest": "^29.4.0",
     "grunt": "^1.6.1",
     "grunt-babel": "^8.0.0",
     "grunt-contrib-copy": "^1.0.0",
@@ -21,6 +23,8 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-ts": "^6.0.0-beta.22",
     "grunt-webpack": "^5.0.0",
+    "jest": "^29.4.3",
+    "ts-jest": "^29.0.5",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.5",
     "webpack": "^5.75.0"
