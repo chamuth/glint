@@ -1,0 +1,256 @@
+body {
+  background-color: #151515;
+  font-family: "Golos Text", sans-serif;
+  color: white;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.flex {
+  padding: 25px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.container {
+  border-radius: 15px;
+  background-color: #464646;
+  position: relative;
+}
+
+.c1 {
+  width: 100px;
+  height: 100px;
+}
+.c2 {
+  width: 200px;
+  height: 200px;
+}
+.c3 {
+  width: 300px;
+  height: 300px;
+}
+.c4 {
+  width: 400px;
+  height: 400px;
+}
+.c5 {
+  width: 500px;
+  height: 500px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.text-container {
+  justify-content: end;
+  padding: 25px 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.text-container .text {
+  font-size: 25px;
+}
+.text-container .text2 {
+  font-size: 15px;
+  color: #ccc;
+}
+
+.custom {
+  width: 50px;
+  height: 50px;
+  border-radius: 20% 20% 50% 50%;
+}
+
+.material-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+h1.glint {
+  color: white;
+  font-size: 22px;
+  font-weight: normal;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.ctr {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.card {
+  background-color: #252525;
+  flex: 1;
+  position: relative;
+  height: 400px;
+}
+
+.card .text-content {
+  position: absolute !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  bottom: 25px;
+  left: 20px;
+}
+
+.text-content .description {
+  font-size: 18px;
+}
+.text-content .title {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+  color: #e4d1d1;
+}
+
+@media (min-width: 768px) {
+  .ctr {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .ctr {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .ctr {
+    width: 1170px;
+  }
+}
