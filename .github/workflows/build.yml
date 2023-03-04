@@ -7,17 +7,7 @@ on:
     branches: ["develop", "master"]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm test
-  build:
+  test_build:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -32,4 +22,5 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: gem install sass
       - run: npm ci
+      - run: npm test
       - run: npm run build
