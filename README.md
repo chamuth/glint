@@ -1,6 +1,7 @@
 # Glint
-## Introduction
-Glint gives you next gen effects for all types of UI elements.
+[![Build](https://github.com/Chamuth/glint/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/Chamuth/glint/actions/workflows/build.yml)
+
+Glint gives you next gen effects for all types and shapes of UI elements in your frontend system.
 
 ## Basic installation
 - `npm i @chamuth/glint`
