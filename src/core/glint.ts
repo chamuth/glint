@@ -59,7 +59,7 @@ export default class Glint {
         const rect = d.container.getBoundingClientRect();
 
         const x = (this.mouseX - rect.left - rect.width);
-        const y = (this.mouseY - rect.top - rect.width);
+        const y = (this.mouseY - rect.top - rect.height);
         d.border.style.transform = `translate(${x}px,${y}px)`;
 
         if ((this.mouseX >= rect.left && this.mouseX <= rect.left + rect.width) &&
